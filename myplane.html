@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="background-color:black">
+<img src="images/pause.PNG" style="position:absolute;left:30px;top:30px;cursor:pointer;" onclick="stop()">
+<div class="score" style="position: absolute;left:30px;top:80px;font-weight: bold;font-size:40px"><span id="score">0</span></div>
+<input id="start" type="button" value="开始" style="position: absolute;left:233px;top:250px;cursor:pointer" onclick="init();startHide()">
+<div style="position: absolute;left:166px;top:150px"><span id="rules">游戏规则：子弹击中敌机得分，<br>飞机碰到敌机或敌机落地游戏结束</span></div>
+<div style="position:absolute;left:200px;top:230px"><span id="showScore"></span></div>
+<canvas id="canvas" width="500" height="500" style="background-image:url(images/bak.PNG)">
+    Sorry!
+</canvas>
+<script type="text/javascript" src="js/myplane.js">
+    </script>
+<script type="text/javascript" src="js/bullet.js">
+</script>
+<script type="text/javascript">
+    function startHide(){
+        var start=document.getElementById("start");
+        start.style.display="none";
+        document.getElementById("showScore").style.display="none";
+        document.getElementById("rules").style.display="none";
+    }
+    function stop(){
+        clearInterval(gameTimeer);
+        clearInterval(btimeer);
+        clearInterval(etimeer);
+        ctx.clearRect(boxx,boxy,boxwidth,boxheight);
+        allEnemy.length=0;
+        heroBullets.length=0;
+        var start=document.getElementById("start");
+        start.style.display="";
+        document.getElementById("showScore").style.display="";
+        document.getElementById("rules").style.display="";
+        showScore();
+        score=0;
+    }
+    function showScore(){
+        document.getElementById("showScore").innerHTML="您的成绩为："+score;
+    }
+    </script>
+</body>
+</html>
