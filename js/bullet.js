@@ -1,6 +1,4 @@
-/**
- * Created by Administrator on 2014/8/23.
- */
+
 function Bullet(x,y) {
     this.x = x;
     this.y = y;
@@ -15,7 +13,7 @@ function Bullet(x,y) {
 
             this.isLive = false;
         }
-            //子弹死亡
+
         else
             {
                 this.y -= 20;
